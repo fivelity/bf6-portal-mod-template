@@ -1,36 +1,72 @@
-# BF6 Mod Template
+# BF6 Mod Development Template
 
-Couldn't find a solid, up-to-date bf6 modding template...
-So I created my own BF6 Mod Template to suit my needs. 
-Based on the following (credits):
+A clean, modern Battlefield 6 Portal modding template designed for reliability, clarity, and ease of use.  
+I built this because existing templates were either outdated or incomplete — this project organizes the tools I rely on into a cohesive [W-I-P] starting point for BF6 mod development. 
 
-[Bf6mods](https://github.com/bf6mods/bf6mods) - used for initial project setup, cli tools. Modified the `.bf6/*` config to handle `bf6-portal-mod-types`. See [docs](https://bf6mods.github.io/bf6mods).
+*Mind you, an evolving Work-In-Progress.* :)
 
-[bf6-portal-mod-types](https://github.com/deluca-mike/bf6-portal-mod-types) - for up-to-date bf6 portal sdk types (v1.4.2.0). See [docs](https://deluca-mike.github.io/bf6-portal-mod-types/) 
+## Included Tools & References
 
-[bf6-portal-utils](https://github.com/deluca-mike/bf6-portal-utils) - helpful utils to save time. See [README.md](https://github.com/deluca-mike/bf6-portal-utils#)
+This template integrates several excellent community resources.  
+Credit goes entirely to the creators and maintainers of these projects:
 
+### **bf6mods**  
+Project scaffolding, CLI utilities, and `.bf6/*` configuration (extended here to support `bf6-portal-mod-types`).  
+Docs: [https://bf6mods.github.io/bf6mods](https://bf6mods.github.io/bf6mods)
 
-## Installation
+### **bf6-portal-mod-types**  
+Up‑to‑date BF6 Portal SDK type definitions (currently v1.4.2.0).  
+Docs: [https://deluca-mike.github.io/bf6-portal-mod-types/](https://deluca-mike.github.io/bf6-portal-mod-types/)
 
-Run `npm install` in this directory.
+### **bf6-portal-utils**  
+Utility helpers for common Portal modding tasks.  
+Repo: [https://github.com/deluca-mike/bf6-portal-utils](https://github.com/deluca-mike/bf6-portal-utils)
 
-## Deploying Project to Portal
+---
 
-There are two different ways of deploying a project to portal.
+> ## Installation
+> Run the following inside the project directory:
+> ```
+> npm install
+> ```
+>
+> ## Deploying to Portal
+> You can deploy your mod in two ways:
+>
+> ### Manual Import
+> 1. Run:
+>    ```
+>    npm run build
+>    ```
+> 2. Open [https://portal.battlefield.com](https://portal.battlefield.com)  
+> 3. Click **Import**  
+> 4. Select `dist/mod.json`
+>
+> ### Automated Deploy (`npx @bf6mods/cli deploy`)
+> Install Puppeteer globally:
+> ```
+> npm -g i puppeteer
+> ```
+> Then deploy automatically:
+> ```
+> npx @bf6mods/cli deploy
+> ```
+>
+> > [!NOTE]  
+> > After deploying, Portal may not visually update immediately due to browser caching.  
+> > Your changes *are* deployed — a hard refresh or cache clear may be required to see them.
 
-### Manually Import
+---
 
-Just run `npm run build` in your project dir, open [portal.battlefield.com](https://portal.battlefield.com), click import, and select the `dist/mod.json` file.
+## About This Template
 
-### `npx @bf6mods/cli deploy`
+I don’t claim authorship over the underlying tools or SDKs — this repository simply organizes them into a streamlined, ready‑to‑use development template tailored to my workflow. It is a *Work-In-Progress*. Use it, fork it, extend it, or adapt it however you like.
 
-To use this, you must first install puppeteer via `npm -g i puppeteer`, but after doing so you can just run this command, and you will
-have your project deploy automatically for you.
+## Acknowledgments
 
-Important note on this. The [portal.battlefield.com](https://portal.battlefield.com) will not update showing the changes from the deployed code. This is due to the browsers cache.
+Special thanks to the developers and maintainers who created and shared the tools this template builds upon:
 
+- **deluca-mike** — for maintaining consistently up‑to‑date Portal SDK resources  
+- **bf6mods** — for initial project configuration and CLI tooling  
+- **TheSirCommunity** — for `ts-bf-portal` (not used directly here, but foundational to the ecosystem)
 
-I don't take credit for anything in this repo. I just organized the tools I needed into a base template for my needs. Feel free to use. 
-
-Special thanks to **deluca-mike** for having the only relavent repos I found with latest Portal SDK and **bf6mods** for insights, cli tools, and initial project config/sdk.
